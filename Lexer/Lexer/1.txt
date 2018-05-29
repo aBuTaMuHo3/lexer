@@ -12,7 +12,10 @@ int main()
 125f
 125
 1.2E+15
+1.3124341241
 1.2E-15
 1.2E1.5
 1..2E1.5
+/* adsas da sa */
+/*asdasdasdas
 }

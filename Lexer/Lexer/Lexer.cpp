@@ -42,10 +42,33 @@ vector<pair<string, string>> Lexer::CreateTokenList(istream &input)
 
 			}
 		}
-		
+	}
+	for (size_t i = 0; i < m_tokens.size()-2; ++i)
+	{
+		if (m_tokens[i].first == FLOAT_TOKEN && *m_tokens[i].second.rbegin() == EXP_INF)
+		{
+			if (m_tokens[i + 1].first == "operator" && (*m_tokens[i+1].second.begin() == PLUS || *m_tokens[i+1].second.begin() == MINUS))
+			{
+				if (m_tokens[i + 2].first == INT_TOKEN)
+				{
+					string newExp = m_tokens[i].second + m_tokens[i + 1].second + m_tokens[i + 2].second;
+					m_tokens.erase(m_tokens.begin()+i);
+					m_tokens.erase(m_tokens.begin() + i);
+					m_tokens.erase(m_tokens.begin() + i);
+					m_tokens.emplace(m_tokens.begin() + i, make_pair(FLOAT_TOKEN, newExp));
+				}
+			}
+			else
+			{
+				m_tokens[i].first = ERROR;
+			}
+		}
+	}
+	if (m_isBlockComment)
+	{
+		m_tokens.push_back(make_pair(ERROR, "unfinished comment"));
 	}
 	return m_tokens;
-
 }
 
 

@@ -41,14 +41,18 @@ static const std::string FLOAT_TOKEN = "float";
 static const std::string BIN_NUMBER_TOKEN = "bin";
 static const std::string OCT_NUMBER_TOKEN = "oct";
 static const std::string HEX_NUMBER_TOKEN = "hex";
+
 static const std::vector<char> AVALIABLE_FOR_BIN = { '0', '1' };
 static const std::vector<char> AVALIABLE_FOR_OCT = { '0', '1', '2', '3', '4', '5', '6', '7' };
 static const std::vector<char> AVALIABLE_FOR_HEX = { '0', '1', '2', '3', '4', '5', '6', '7', '8',
 '9', 'A', 'B', 'C', 'D', 'E', 'F' };
+
 static const std::string BIN_NUMBER_PREF = "0b";
 static const std::string OCT_NUMBER_PREF = "0c";
 static const std::string HEX_NUMBER_PREF = "0x";
 static const char EXP_INF = 'E';
+static const char PLUS = '+';
+static const char MINUS = '-';
 static const char FLOAT_END = 'f';
 
 static const std::string ID_TOKEN = "identificator";
